@@ -1,0 +1,105 @@
+---
+title: >
+  Can Statistical Models Provide Improved Performance over DAR Methods for Estimating Flow-duration Curves and Daily Streamflows in Ungauged Catchments?
+author:
+  - name: Shubham Jain
+    affiliation: "1,2"
+  - name: Michael Schramm
+    affiliation: 1
+    extra:
+      - "michael.schramm@ag.tamu.edu"
+  - name: Dhruva Kathuria
+    affiliation: "1,2"
+affiliation:
+  - Texas Water Resources Institute, Texas A\&M AgriLife Research and Extension Service, College Station, TX
+  - Texas A\&M College of Agriculture and Life Sciences, College Station, TX
+date: "`r Sys.Date()`"
+output:
+  betterposter::poster_better:
+    # Optional styling arguments
+    hero_background: "#0054a4"
+    accent_color: "#54565a"
+    hero_color: "#FFFFFF"
+    logo: "figures/logo.png"
+    # See betterposter::qrcode_options() for help
+    mathjax: false
+    # Generic rmarkdown arguments
+    highlight: tango
+    self_contained: true
+    css: "betterposter-sm.css"
+bibliography: ref.bib
+---
+
+```{css echo=FALSE}
+/* Adjust space at top of #hero (center panel) */
+#hero {
+  padding-top: 30%;
+}
+
+#left-bar {
+  background-size: contain;
+}
+```
+
+
+<div id="hero">
+<!--
+  Center Column of Poster
+
+  * The main text goes in <h1> (single #) header.
+  * You can add additional text if desired.
+-->
+
+# Random forest models **accurately predict** flow-duration curves using **readily available landscape data**.
+
+*Both random forest models and drainage-area approaches can accurately predict flow-duration curves in ungaged basins. Random forest models are suitable where nearby similar gaged watersheds are present and drainage-area ratios don't perform well.*
+
+
+</div>
+
+
+
+<div id="left-bar">
+<!-- Text in the left bar, title and authors added automatically -->
+
+## Abstract
+
+Flow-duration curves (FDCs) are used to estimate and describe streamflow exceedance values, development of pollutant load duration curves, and estiamtion of daily streamflow values. Development of FDCs at ungaged sites if often accomplished using the drainage-area ration method which equates the ratio of of streamflow at the ungaged site with a nearby gaged site with the ratio of the corresponding areas [@asquith_statewide_2006]. This method while easily applicable, has certain limitations especially when the two watersheds differ in land cover, soil type, topography or when the stations are far apart. In this study, an alternate approach is proposed which uses watershed attributes from GAGES II dataset as explanatory variables and models the flow-duration curve using random forest regression.
+
+## Methods
+
+We subset gages and potential covariates using the USGS GAGES II dataset [@falcone_gages-ii_2011]. Discharges at 17 streamflow percentiles at each gage were developed using DAR and random forest regressions. Random forests models were produced using leave one out cross validation. DARs calculations were produced using all candidate streamgages within 100 km. Performance was evaluated using NSE and $r^2$ across all gages and along the predicted streamflow exceedance percentiles.
+
+
+## Results
+
+DARs have a high variance in performance, with 20% of gages performing worse than the mean (NSE < 0). 53% of gages had NSE >= 0.7, indicating good performance for select gages. The DAR approach appears to perform most poorly at low flows.
+
+Random forests provide improved performance across all flow quantiles compared to the DAR approach. Random forest had good performance at 64% of gages and fairly for 12% of gauges.
+
+## Conclusion
+
+DARs are simple to apply but require specific conditions to maximize performance [@asquith_statewide_2006]. The random forest method exhibits acceptable performance across a wide range of streamflow quantiles and can be used when conditions for DARs are not met. FDC transfer methods enable the reconstruction of daily streamflows timeseries at the ungaged basin. The next step in this project is to evaluate criteria necessary for FDC transfer methods. An `R` package is also in development to facilitate estimating FDCs in ungaged basins using random forest models and the GAGES II dataset.
+
+</div>
+
+
+
+<div id="right-bar">
+<!-- Right bar -->
+
+```{r studyarea, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="(A) Selected streamflow gages used to predict and validate methods and (B) an example of a predicted versus observed FDC as a single site."}
+knitr::include_graphics(here::here("flow-est-poster/figures/fig1.png"))
+```
+
+```{r fdc, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="(A) Distribution of per-gage NSE values by DAR and random forest methods and (B) comparison of NSE by exceedance percentile for DAR and random forest methods."}
+knitr::include_graphics(here::here("flow-est-poster/figures/gof.png"))
+```
+
+```{r varimp, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Variable importance plots for random forest models at selected flow exceedance percentiles."}
+knitr::include_graphics(here::here("flow-est-poster/figures/varimpplot.png"))
+```
+
+</div>
+
+# References
