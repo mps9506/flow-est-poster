@@ -16,3 +16,15 @@ pagedown::chrome_print(here::here("flow-est-poster/flow-est-poster.html"),
                                       marginLeft = 0,
                                       marginRight = 0))
 
+pagedown::chrome_print(here::here("flow-est-poster/flow-est-poster.html"), 
+                       "flow-est-poster.png", 
+                       format = "png",
+                       options = list(landscape = FALSE,
+                                      paperWidth = 16,
+                                      paperHeight = 9,
+                                      scale = 0.5,
+                                      marginTop = 0,
+                                      marginBottom = 0,
+                                      marginLeft = 0,
+                                      marginRight = 0))
+
