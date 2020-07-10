@@ -147,7 +147,7 @@ sup {
   font-size: 1em;
 }
 #title-container .affiliation {
-  font-size: 1em;
+  font-size: 8px;
   font-weight: normal;
 }
 
@@ -157,18 +157,33 @@ sup {
   padding: 0 5%;
 }
 
+#left-bar h2 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
 /* ---- Ammo Bar (Right Bar) ---- */
 #right-bar {
   background: #fff;
   padding: 5%;
 }
 
+#right-bar h2 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
 /* ---- References ---- */
 #references {
   padding: 0 5%;
 }
+
+#references h1 {
+  font-size: 12px;
+  font-weight: normal;
+}
 #references p, #references ul, #references ol {
-  font-size: 6px;
+  font-size: 8px;
 }
 
 /* ---- Tables ---- */
