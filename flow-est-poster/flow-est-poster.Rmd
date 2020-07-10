@@ -72,7 +72,7 @@ We subset gages and candidate covariates using the USGS GAGES II dataset (Figure
 
 ## Results
 
-DARs have a high variance in performance, with 20% of gages performing worse than the mean (NSE < 0). 53% of gages had NSE >= 0.7, indicating good performance for select gages. The DAR approach appears to perform most poorly at low flows. Random forests provide improved performance across all flow quantiles compared to the DAR approach. Random forest had NSE >= 0.7 at 64% of gages and 0.4 < NSE < 0.7 for 12% of gauges. The parametric approach generally failed to produce shape parameters with physical meaning.
+DARs resulted in high variance in performance, with 20% of gages performing worse than the mean (NSE < 0). 53% of gages had NSE >= 0.7, indicating good performance for select gages. The DAR approach appears to perform most poorly at low flows. Random forests provide improved performance across all flow quantiles compared to the DAR approach. Random forest had NSE >= 0.7 at 64% of gages and 0.4 < NSE < 0.7 for 12% of gauges. The parametric approach generally failed to produce shape parameters with physical meaning.
 
 ## Conclusion
 
